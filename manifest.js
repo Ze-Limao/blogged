@@ -1,7 +1,7 @@
 {
-    "name": "BackLogged",
-    "short_name": "BL",
-    "start_url": "index.html",
+    "name": "Minha PWA",
+    "short_name": "PWA",
+    "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#000000",
