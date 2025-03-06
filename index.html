@@ -1,40 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#000000">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="mobile-web-app-capable" content="yes">
-    <title>My PWA</title>
-    <link rel="manifest" href="manifest.json" />
-    <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker
-          .register("service-worker.js")
-          .then(() => console.log("Service Worker Registered"));
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>My PWA</title>
+  <link rel="manifest" href="manifest.json" />
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("service-worker.js")
+        .then(() => console.log("Service Worker Registered"));
+    }
 
-      document.addEventListener("DOMContentLoaded", () => {
-        if (window.matchMedia("(display-mode: standalone)").matches) {
-          const docElm = document.documentElement;
-          if (docElm.requestFullscreen) {
-            docElm.requestFullscreen();
-          } else if (docElm.mozRequestFullScreen) { // Firefox
-            docElm.mozRequestFullScreen();
-          } else if (docElm.webkitRequestFullscreen) { // Chrome, Safari and Opera
-            docElm.webkitRequestFullscreen();
-          } else if (docElm.msRequestFullscreen) { // IE/Edge
-            docElm.msRequestFullscreen();
-          }
-        }
-      });
-    </script>
-  </head>
-  <body>
-    <script>
-      window.location.href = "https://www.backloggd.com/";
-    </script>
-  </body>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.matchMedia("(display-mode: standalone)").matches) {
+        document.documentElement.requestFullscreen()
+          .catch(err => console.log("Error attempting to enter full-screen mode:", err));
+      }
+    });
+  </script>
+</head>
+<body>
+  <script>
+    window.location.href = "https://www.backloggd.com/"; 
+  </script>
+</body>
 </html>
